@@ -8,15 +8,16 @@ public class UrlConst {
 	
 	// Monitor
 	public static final String HEALTH 	= "/health";
+	public static final String INVALIDATE 	= "/invalidate";
 	
 	// Home
 	public static final String HOME2 	= "/home/level2";
 	
 	// Auth
-	public static final String LOGIN 	= "/login";
-	public static final String LOGOUT 	= "/logout";
-	public static final String SIGNUP 	= "/signup";
-	public static final String FORGOT_PASSWORD = "/forgot-password";
+	public static final String AUTH_LOGIN 	= "/log-in";
+	public static final String AUTH_LOGOUT 	= "/logout";
+	public static final String AUTH_SIGNUP 	= "/signup";
+	public static final String AUTH_FORGOT_PASSWORD = "/forgot-password";
 	
 	// User
 	public static final String USER_PROFILE = "/user/profile";

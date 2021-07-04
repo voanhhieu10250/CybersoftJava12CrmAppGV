@@ -7,13 +7,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cybersoft.java12.crmapp.dbconnection.MySQLConnection;
 import cybersoft.java12.crmapp.util.ServletConst;
 import cybersoft.java12.crmapp.util.UrlConst;
 
 @WebServlet(name = ServletConst.MONITOR, urlPatterns = {
-		UrlConst.HEALTH
+		UrlConst.HEALTH,
+		UrlConst.INVALIDATE
 })
 public class MonitorServlet extends HttpServlet {
 	@Override
@@ -22,10 +24,20 @@ public class MonitorServlet extends HttpServlet {
 		
 		switch (path) {
 			case UrlConst.HEALTH: {
+				// session demo
+				HttpSession currentSession = req.getSession();
+				currentSession.setAttribute("pingo", "This is the first session attribute");
+				currentSession.setMaxInactiveInterval(60 * 60);
+				
 				if(MySQLConnection.getConnection() != null)
 					resp.getWriter().append("Database connection has been established");
 				else
 					resp.getWriter().append("Datebase connection could not be established");
+				break;
+			}
+			
+			case UrlConst.INVALIDATE: {
+				req.getSession().invalidate();
 				break;
 			}
 		}

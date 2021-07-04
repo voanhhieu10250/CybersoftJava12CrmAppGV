@@ -6,4 +6,7 @@ public class ServletConst {
 	
 	// home
 	public static final String HOME = "homeServlet";
+	
+	// login
+	public static final String AUTH = "loginServlet";
 }

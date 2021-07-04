@@ -140,7 +140,7 @@
                                 Edit account
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.LOGOUT %>" />">Logout</a>
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.AUTH_LOGOUT %>" />">Logout</a>
                         </div>
                     </li>
                 </ul>
