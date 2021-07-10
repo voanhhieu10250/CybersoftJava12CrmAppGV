@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cybersoft.java12.crmapp.service.AuthService;
 import cybersoft.java12.crmapp.util.JspConst;
 import cybersoft.java12.crmapp.util.ServletConst;
 import cybersoft.java12.crmapp.util.UrlConst;
@@ -21,6 +22,13 @@ import cybersoft.java12.crmapp.util.UrlConst;
 		UrlConst.AUTH_SIGNUP
 })
 public class AuthServlet extends HttpServlet {
+	private AuthService service;
+	
+	@Override
+	public void init() throws ServletException {
+		service = new AuthService();
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		switch (req.getServletPath()) {
@@ -103,7 +111,8 @@ public class AuthServlet extends HttpServlet {
 			// login dang nhap
 			if(email == null || password == null)
 				isLogin = false;
-			else if(!email.equals("admin@gmail.com") || !password.equals("1234")) 
+//			else if(!email.equals("admin@gmail.com") || !password.equals("1234"))
+			else if(!service.login(email, password)) 
 				isLogin = false;
 			
 			if(isLogin) {
