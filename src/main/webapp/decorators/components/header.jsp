@@ -136,7 +136,7 @@
                             <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_PROFILE %>" />"> 
                                 My profile
                             </a>
-                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_EDIT %>" />">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_UPDATE %>" />">
                                 Edit account
                             </a>
                             <div class="dropdown-divider"></div>

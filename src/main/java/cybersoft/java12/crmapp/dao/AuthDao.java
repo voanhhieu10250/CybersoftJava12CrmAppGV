@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import cybersoft.java12.crmapp.dbconnection.MySQLConnection;
+import cybersoft.java12.crmapp.dto.UserLoginDto;
 
 public class AuthDao {
 
@@ -33,6 +34,33 @@ public class AuthDao {
 		}
 		
 		return 0;
+	}
+
+	public UserLoginDto findUserLogin(String email) throws SQLException {
+		Connection connection = MySQLConnection.getConnection();
+		String query = "SELECT email, password FROM user WHERE email = ?";
+		UserLoginDto dto = null;
+		
+		try {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, email);
+			
+			ResultSet resultSet = statement.executeQuery();
+			
+			if(resultSet.next()) {
+				dto = new UserLoginDto();
+				dto.setEmail(resultSet.getString("email"));
+				dto.setPassword(resultSet.getString("password"));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Unable to connect to database");
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+		
+		return dto;
 	}
 
 }

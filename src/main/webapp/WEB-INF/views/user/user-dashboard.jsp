@@ -26,7 +26,7 @@
 	                <h1 class="m-0">User Dashboard</h1>
 	            </div>
 	            <div class="ml-auto">
-	                <a href="" class="btn btn-light">
+	                <a href="<c:url value="<%= UrlConst.USER_ADD %>" />" class="btn btn-light">
 	                	<i class="material-icons icon-16pt text-muted mr-1">settings</i>Add New User
 	                </a>
 	            </div>
@@ -50,18 +50,29 @@
                         </tr>
                     </thead>
                     <tbody class="list" id="staff02">
-                        <tr>
-                            <td>
-                                Võ Anh Hiếu
-                            </td>
-                            <td>voanhhieu@gmail.com</td>
-                            <td><span class="badge badge-primary">ADMIN</span></td>
-                            <td>0987654321</td>
-                            <td>
-                            	<a href="" class="text-muted"><span class="material-icons">settings</span></a>
-                            	<a href="" class="text-muted"><span class="material-icons">delete</span></a>
-                            </td>
-                        </tr>
+                    	<c:choose>
+                    		<c:when test="${users == null}">
+                    			<tr>
+                    				<td>There is no data</td>
+                    			</tr>
+                    		</c:when>
+                    		<c:otherwise>
+	                    		<c:forEach var="user" items="${users}">
+		                    		<tr>
+			                            <td>
+			                                ${user.name}
+			                            </td>
+			                            <td>${user.email}</td>
+			                            <td><span class="badge badge-primary">${user.role.name}</span></td>
+			                            <td>${user.phone}</td>
+			                            <td>
+			                            	<a href="" class="text-muted"><span class="material-icons">settings</span></a>
+			                            	<a href="<c:url value="<%= UrlConst.USER_DELETE %>"/>?id=${user.id}" class="text-muted"><span class="material-icons">delete</span></a>
+			                            </td>
+			                        </tr>
+	                    		</c:forEach>
+                    		</c:otherwise>
+                    	</c:choose>
                     </tbody>
                 </table>
 	        </div>

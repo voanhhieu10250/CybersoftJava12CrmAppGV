@@ -104,9 +104,9 @@ public class AuthServlet extends HttpServlet {
 			
 			// section demo
 			HttpSession currentSession = req.getSession();
-			String pingo = (String) currentSession.getAttribute("pingo");
-			
-			System.out.printf("Pingo: %s\n", pingo);
+//			String pingo = (String) currentSession.getAttribute("pingo");
+//			
+//			System.out.printf("Pingo: %s\n", pingo);
 			
 			// login dang nhap
 			if(email == null || password == null)

@@ -21,13 +21,13 @@
                             Project
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.PROJECT_MANAGE %>" />">
                                 Manage Project
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.PROJECT_ADD %>" />">
                                 Create New Project
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.PROJECT_STAFF %>" />">
                                 Manage Staffs
                             </a>
                         </div>
@@ -37,10 +37,10 @@
                             User
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_DASHBOARD %>" />">
                                 Manage User
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.USER_ADD %>" />">
                                 Create User
                             </a>
                         </div>
@@ -50,16 +50,16 @@
                             Role
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.ROLE_DASHBOARD %>" />">
                                 Manage Role
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<c:url value="<%=UrlConst.ROLE_ADD %>" />">
                                 Create Role
                             </a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Task</a>
+                        <a class="nav-link" href="<c:url value="<%=UrlConst.HOME %>" />">Task</a>
                     </li>
                 </ul>
             </div>
